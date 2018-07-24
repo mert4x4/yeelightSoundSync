@@ -16,6 +16,7 @@ class AudioStream():
 
     def getData(self):
         data = self.stream.read(self.CHUNK)
+        data_int = np.array(struct.unpack(str(2*self.CHUNK) + 'B',data),dtype='b')+128
         return data_int      
     def exitStream(self):
         print "stream stopped"
